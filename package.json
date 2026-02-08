@@ -6,10 +6,7 @@
     "start": "ng serve",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "prebuild": "rimraf dist/*",
-    "buildt": "ng build",
-    "postbuild": "cpx \"src/assets/config/**/*.json\" dist/your-app-name/assets/config && cpx \"scripts/**/*.js\" dist/your-app-name/scripts",
-    "build": "npm-run-all prebuild buildt postbuild"
+    "build": "ng build"
   },
   "private": true,
   "dependencies": {
