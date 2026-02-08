@@ -6,7 +6,10 @@
     "start": "ng serve",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build": "ng build && xcopy /E /I /Y \"dist\\front-angualar-sportdate\\browser\\*\" \"dist\\\" && rmdir /S /Q \"dist\\front-angualar-sportdate\""
+    "prebuild": "rimraf dist/*",
+    "buildt": "ng build",
+    "postbuild": "cpx \"src/assets/config/**/*.json\" dist/your-app-name/assets/config && cpx \"scripts/**/*.js\" dist/your-app-name/scripts",
+    "build": "npm-run-all prebuild buildt postbuild"
   },
   "private": true,
   "dependencies": {
@@ -27,12 +30,15 @@
     "@angular/cli": "^17.0.6",
     "@angular/compiler-cli": "^17.0.0",
     "@types/jasmine": "~5.1.0",
+    "cpx": "^1.5.0",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^6.1.2",
     "typescript": "~5.2.2"
   }
 }
